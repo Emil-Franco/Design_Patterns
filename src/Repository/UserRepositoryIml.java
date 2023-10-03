@@ -1,30 +1,41 @@
 package Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserRepositoryIml implements UserRepository {
-    private List<User> users = new ArrayList<>();
+    public Map<Long, User>userMap = new HashMap<>();
+    public Long counterId = 1L;
+
 
     @Override
-    public User findById(Long id) {
-        for (User usuario : users) {
-            if (usuario.getId().equals(id)) {
-                return usuario;
-            }
+    public User guardar(User user) {
+        Map<Long,User>copy = new HashMap<>(userMap);
+        if (user.getId() == null){
+            copy.put(counterId++, user);
+        }else {
+            copy.put(user.getId(),user);
         }
-        return null;
+        userMap = copy;
+        return user;
     }
 
     @Override
-    public List<User> findAll() {
-        return users;
+    public User obtenerPorId(Long id) {
+        return userMap.get(id);
     }
-
 
     @Override
-    public void delete(Long id) {
-        users.removeIf(usuario -> usuario.getId().equals(id));
+    public List<User> obtenerTodos() {
+        return new ArrayList<>(userMap.values());
     }
+
+    @Override
+    public void eliminar(Long id) {
+        userMap.remove(id);
+
     }
+}
 

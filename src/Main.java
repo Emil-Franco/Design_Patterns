@@ -4,6 +4,8 @@ import Factory.*;
 import Repository.*;
 import Strategy.*;
 
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -62,9 +64,27 @@ public class Main {
         System.out.println(user2.toString());
         System.out.println("--------------------------------------------------------------------------------------------");
         //Repository
-        // Crear usuarios
-        User usuario1 = new User(1L, "Juan", "juan@example.com");
-        User usuario2 = new User(2L, "María", "maria@example.com");
 
+        UserRepository userRepository = new UserRepositoryIml();
+        // Guardar usuarios
+        System.out.println("----------------------------------");
+        User user4 = new User(1L, "Emil","Efranco@gmail.com");
+        userRepository.guardar(user4);
+
+        User user5 = new User(2L, "Joao", "Walterjoao@gmail.com");
+        userRepository.guardar(user5);
+        System.out.println("----------------------------------");
+
+        // Obtener todos los usuarios
+        List<User> users = userRepository.obtenerTodos();
+        for (User user : users){
+            System.out.println(" ID --> " + user.getId() + " Name --> " + user.getNombre() + " Mail --> " + user.getCorreo());
+        }
+
+        // Obtener usuarios por ID
+        User recovereduser = userRepository.obtenerPorId(1L);
+        System.out.println(" ID recovered --> " + recovereduser.getId() + " Name recovered --> " + recovereduser.getNombre() + " Mail recovered --> " + recovereduser.getCorreo());
+
+        userRepository.eliminar(2L);
     }
 }
