@@ -6,11 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 public class UserRepositoryIml implements UserRepository {
+    // Declaramos un mapa donde long es la clave unica de cada usuario y User es el objeto
+    // HasMap lo utilizamos para almacenar datos en memoria
     public Map<Long, User>userMap = new HashMap<>();
+    // Utilizamos este contador para asignar el id a cada usuario
     public Long counterId = 1L;
 
 
+
     @Override
+    // En este metodo creamos una copia del mapa original para trabajar con la copia en vez de la original
     public User guardar(User user) {
         Map<Long,User>copy = new HashMap<>(userMap);
         if (user.getId() == null){
@@ -23,16 +28,19 @@ public class UserRepositoryIml implements UserRepository {
     }
 
     @Override
+    // Este metodo nos proporciona un usuario por su id
     public User obtenerPorId(Long id) {
         return userMap.get(id);
     }
 
     @Override
+    // Este metodo nos proporciona a todos los usuarios
     public List<User> obtenerTodos() {
         return new ArrayList<>(userMap.values());
     }
 
     @Override
+    // Este es un procedimiento que elimina un usuario por su id
     public void eliminar(Long id) {
         userMap.remove(id);
 
