@@ -1,35 +1,37 @@
 package DTO_Data_Transfer_Object;
 
+// creamos un objeto con sus atributos
 public class UsuarioDTO {
-    private String nombre;
-    private String correo;
+    private String name;
+    private String mail;
 
-
+// creamos un contructor vacio
     public UsuarioDTO(){}
 
-
-    public UsuarioDTO(String nombre, String correo) {
-        this.nombre = nombre;
-        this.correo = correo;
+// creamos un contructor con los atributos
+    public UsuarioDTO(String name, String mail) {
+        this.name = name;
+        this.mail = mail;
     }
 
-    public String getNombre() {
-        return nombre;
+// creamos su getters y setters
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getMail() {
+        return mail;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String toString(){
-        return "user DTO --> " + "Name: " + nombre + " --> " +  "Mail: " + correo;
+        return "user DTO --> " + "Name: " + name + " --> " +  "Mail: " + mail;
     }
 }
