@@ -1,16 +1,20 @@
 package Repository;
 
+// Creamos una clase con sus atributos.
 public class User {
     private Long id;
-    private String nombre;
-    private String correo;
+    private String name;
+    private String mail;
 
-    public User(Long id, String nombre, String correo) {
+// Creamos su constructor.
+    // Esto nos sirve para inicializar un objeto recien creado
+    public User(Long id, String name, String mail) {
         this.id = id;
-        this.nombre = nombre;
-        this.correo = correo;
+        this.name = name;
+        this.mail = mail;
     }
 
+// Creamos getters y setters para los atributos.
     public Long getId() {
         return id;
     }
@@ -19,20 +23,20 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getMail() {
+        return mail;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }
 

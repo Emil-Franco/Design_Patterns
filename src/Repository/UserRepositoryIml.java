@@ -16,7 +16,7 @@ public class UserRepositoryIml implements UserRepository {
 
     @Override
     // En este metodo creamos una copia del mapa original para trabajar con la copia en vez de la original
-    public User guardar(User user) {
+    public void save(User user) {
         Map<Long,User>copy = new HashMap<>(userMap);
         if (user.getId() == null){
             copy.put(counterId++, user);
@@ -24,24 +24,23 @@ public class UserRepositoryIml implements UserRepository {
             copy.put(user.getId(),user);
         }
         userMap = copy;
-        return user;
     }
 
     @Override
     // Este metodo nos proporciona un usuario por su id
-    public User obtenerPorId(Long id) {
+    public User getById(Long id) {
         return userMap.get(id);
     }
 
     @Override
     // Este metodo nos proporciona a todos los usuarios
-    public List<User> obtenerTodos() {
+    public List<User> getAll() {
         return new ArrayList<>(userMap.values());
     }
 
     @Override
     // Este es un procedimiento que elimina un usuario por su id
-    public void eliminar(Long id) {
+    public void delete(Long id) {
         userMap.remove(id);
 
     }
