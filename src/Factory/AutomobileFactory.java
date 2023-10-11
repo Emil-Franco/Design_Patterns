@@ -4,7 +4,11 @@ package Factory;
 public class AutomobileFactory extends FactoryVehicles {
 
     // Este metodo crea un Vehiculo en este caso un Automovil.
-    public Vehicle createVehicle() {
-        return new Car();
+    public IVehicle createVehicle(String type) {
+        if (type.equals("bicycle")){
+            return new Bicycle();
+        }else{
+            return new Car();
+        }
     }
 }

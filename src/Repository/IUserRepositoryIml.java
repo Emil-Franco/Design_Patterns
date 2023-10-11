@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserRepositoryIml implements UserRepository {
+public class IUserRepositoryIml implements IUserRepository {
     // Declaramos un mapa donde long es la clave unica de cada usuario y User es el objeto
     // HasMap lo utilizamos para almacenar datos en memoria
     public Map<Long, User>userMap = new HashMap<>();

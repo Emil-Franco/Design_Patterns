@@ -1,7 +1,7 @@
 package Factory;
 
 // Esta clase bicicleta implementa la interfaz Vehiculo y sus metodos.
-public class Bicycle implements Vehicle {
+public class Bicycle implements IVehicle {
 
     // Metodos que nos devuelve un mensaje que la accion que esta realizando nuestro objeto
     public void speed_up() {

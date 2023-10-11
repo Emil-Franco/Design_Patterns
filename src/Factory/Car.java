@@ -1,7 +1,7 @@
 package Factory;
 
 // // Esta clase Automovil implementa la interfaz Vehiculo y sus metodos.
-class Car implements Vehicle {
+class Car implements IVehicle {
 
     // Metodos que nos devuelve un mensaje que la accion que esta realizando nuestro objeto
     public void speed_up() {
